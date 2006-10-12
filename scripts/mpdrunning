@@ -1,0 +1,10 @@
+#!/bin/bash
+
+mpd_running=$(ps ax | grep "mpd" | grep -v "mpdrunning" | grep -v "grep")
+
+#echo -n "MPD: "
+if [ -n "$mpd_running" ]; then
+        echo "On"
+else
+        echo "Off"
+fi

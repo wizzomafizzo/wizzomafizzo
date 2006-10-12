@@ -1,0 +1,10 @@
+#!/bin/bash
+
+mpd_running=$(ps ax | grep "mpd" | grep -v "startncmpc" | grep -v "grep")
+
+if [ ! -n "$mpd_running" ]; then
+        mpd ~/.mpd/mpd.conf
+	ncmpc
+else
+	ncmpc
+fi

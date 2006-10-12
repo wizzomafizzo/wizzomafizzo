@@ -1,0 +1,8 @@
+OPTIONS=name:Wizzo,pettype:dog
+OPTIONS=catname:Cat,dogname:Dog,horsename:Horsey,fruit:thang
+OPTIONS=boulder:8,disclose:+i +a +v +g +c
+OPTIONS=windowtype:tty
+OPTIONS=time,showexp,showscore,autodig,color,hilite_pet
+OPTIONS=lit_corridor,msg_window:f,DECgraphics,fullscreen
+OPTIONS=cmdassist,mail,standout,toptenwin,runmode:walk
+OPTIONS=!autopickup

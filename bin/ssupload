@@ -1,0 +1,1 @@
+scrot -e 'mv $f /home/wizzo/images/screens/$n && echo Click\! Click\! \- $f $s && echo Uploading... && shag /home/wizzo/images/screens/$n && echo Done\!'
