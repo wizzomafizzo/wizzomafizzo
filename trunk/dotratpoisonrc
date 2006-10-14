@@ -1,0 +1,57 @@
+chdir
+#escape C-t
+escape M-z
+
+#defborder 0
+#defpadding 2 0 0 0
+#defbarpadding 0 0
+
+set font -*-terminus-medium-r-*-*-12-*-*-*-*-*-*
+
+exec unclutter -idle 1 -jitter 2 -root
+bind W exec ~/bin/expose.pl
+bind grave exec xset dpms force off
+
+bind m exec firefox
+bind e exec gvim
+
+#bind L exec allwindows.sh
+
+#shrink
+#fselect
+warp off
+startup_message off
+#set winname class
+set wingravity center
+
+exec rpws init 4
+bind F1 exec ~/bin/rpws 1
+bind F2 exec ~/bin/rpws 2
+bind F3 exec ~/bin/rpws 3
+bind F4 exec ~/bin/rpws 4
+#bind F5 exec ~/bin/rpws 5
+#bind F6 exec ~/bin/rpws 6
+#bind F7 exec ~/bin/rpws 7
+#bind F8 exec ~/bin/rpws 8
+#bind F9 exec ~/bin/rpws 9
+#bind F10 exec ~/bin/rpws 10
+#bind F11 exec ~/bin/rpws 11
+#bind F12 exec ~/bin/rpws 12
+
+bind Print exec scrot -e 'mv $f ~/images/screens/ && ratpoison -c "echo Click! Click! $f $s"'
+
+bind less exec umount /cdrom && ratpoison -c "echo Cdrom unmounted."
+bind greater exec mount /cdrom && ratpoison -c "echo Cdrom mounted."
+
+bind Prior exec amixer set Headphone 10+ && ratpoison -c "echo Volume up."
+bind Next exec amixer set Headphone 10- && ratpoison -c "echo Volume down."
+bind Home exec amixer set Headphone toggle && ratpoison -c "echo Headphones muted/unmuted."
+bind End exec amixer set Front toggle && ratpoison -c "echo Speakers muted/unmuted."
+
+#addhook switchwin banish
+#set bargravity center
+rudeness 5
+
+alias xterm exec xterm
+unbind c
+bind c xterm
