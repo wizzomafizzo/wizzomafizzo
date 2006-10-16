@@ -86,4 +86,4 @@ alias cp='cp -v'
 alias mv='mv -v'
 
 export EDITOR=vim
-export BROWSER=iceweasel %s
+export BROWSER=iceweasel
