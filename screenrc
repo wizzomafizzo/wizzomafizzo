@@ -1,7 +1,7 @@
 deflogin on
 autodetach on
 
-#escape ``
+escape `.
 
 startup_message off
 shell -$SHELL
@@ -26,21 +26,23 @@ bind K kill
 bind v digraph
 bind ^v version
 
-caption always "%{=b dk} %=[ %?%{-b dc}%-Lw%?%{+b dk}(%{+b dw}%n:%t%{+b dk})%?(%u)%?%{-b dw}%?%{-b dc}%+Lw%? %{=b dk}]%= "
+#caption always "%{=b dk} %=[ %?%{-b dc}%-Lw%?%{+b dk}(%{+b dw}%n:%t%{+b dk})%?(%u)%?%{-b dw}%?%{-b dc}%+Lw%? %{=b dk}]%= "
 #caption always '%{=b dw}:%{-b dw}:%{-b dk}[%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{=b dk} | @%H ]%{-b dw}:%{+b dw}:'
 #caption always '%{=b dw}:%{-b dw}:%{-b dk}[%= %?%{-b dc}%-Lw%?%{+b dk}(%{+b dw}%n:%t%{+b dk})%?(%u)%?%{-b dw}%?%{-b dc}%+Lw%?%{=b dk} | @%H ]%{-b dw}:%{+b dw}:'
+caption always "%{=b dw}.%{-b dw}:%{=b dk}[ %{=b dw}${USER}::%H %{=b dk}] [ %=%?%{-b dc}%-Lw%?%{+b dk}(%{+b dw}%n:%t%{+b dk})%?(%u)%?%{-b dw}%?%{-b dc}%+Lw%? %{=b dk}]%{-b dw}:%{+b dw}."
 
 hardstatus alwayslastline
 #hardstatus string '%{=b dw}:%{-b dw}:%{=b dk}[ %2` | Batt: %1` ]%{-b dw}:%{+b dw}:'
 #hardstatus string '%{=b dw}:%{-b dw}:%{=b dk}[ Batt: %1` | @%H ][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= ][ %d/%m %{W}%c %{=b dk}]%{-b dw}:%{+b dw}:'
-hardstatus string "%{=b dk} %=%{=b dw}.%{-b dw}:%{=b dk}[ %{=b dw}${USER}::%H %{=b dk}| %{=b dw}%2` %{=b dk}| %{=b dw}MPD: %3` %{=b dk}%{=b dk}| %{=b dw}Battery: %1` %{=b dk}]%{-b dw}:%{+b dw}.%= "
+hardstatus string "%{=b dw}:%{-b dw}:%{=b dk}[ %{=b dw}%2` %{=b dk}]%=%{=b dk}[ %{=b dw}Battery: %1` %{=b dk}%{=b dk}| %{=b dw}MPD: %3` %{=b dk}]%{-b dw}:%{+b dw}:"
 
 screen -t irc 0 irssi
-screen -t music 1 ncmpc
-screen -t mixer 2 alsamixer
-screen -t www 3 elinks
-screen 4
+screen -t mc 1 mc
+screen -t music 2 ncmpc
+screen -t mixer 3 alsamixer
+screen -t www 4 elinks
 screen 5
 screen 6
+#screen 7
 
 select 0
