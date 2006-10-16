@@ -29,14 +29,6 @@ bind F1 exec ~/bin/rpws 1
 bind F2 exec ~/bin/rpws 2
 bind F3 exec ~/bin/rpws 3
 bind F4 exec ~/bin/rpws 4
-#bind F5 exec ~/bin/rpws 5
-#bind F6 exec ~/bin/rpws 6
-#bind F7 exec ~/bin/rpws 7
-#bind F8 exec ~/bin/rpws 8
-#bind F9 exec ~/bin/rpws 9
-#bind F10 exec ~/bin/rpws 10
-#bind F11 exec ~/bin/rpws 11
-#bind F12 exec ~/bin/rpws 12
 
 bind Print exec scrot -e 'mv $f ~/images/screens/ && ratpoison -c "echo Click! Click! $f $s"'
 
