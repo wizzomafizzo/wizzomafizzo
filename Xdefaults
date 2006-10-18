@@ -56,9 +56,9 @@ urxvt*font:		xft:Terminus:pixelsize=12
 urxvt*boldFont:
 urxvt*italicFont:
 urxvt*boldItalicFont:
-!urxvt*inheritPixmap:	true
-!urxvt*shading:		10
-!urxvt*tintColor:	#FFFFFF
+urxvt*inheritPixmap:	true
+urxvt*shading:		10
+urxvt*tintColor:	#FFFFFF
 urxvt*title:		Terminal
 urxvt*perl-lib:		/usr/lib/urxvt
 urxvt*perl-ext-common:	mark-urls
@@ -68,6 +68,17 @@ urxvt*urlLauncher:	iceweasel
 urxvt*cursorColor:	orange
 urxvt*cursorColor2:	white
 urxvt*pointerColor:	black
+
+!urxvt*inheritPixmap:    false
+!urxvt*fading:           20
+!urxvt*fadeColor:        black
+!urxvt*tintColor:        #EFEFEF
+!urxvt*foreground:       #EFEFEF
+!urxvt*background:       black
+!urxvt*internalBorder:   0
+
+!urxvt*perl-lib: /usr/lib/urxvt
+!urxvt*perl-ext-common: urxvt-theme
 
 *color0:		#505450
 *color8:		#505450
