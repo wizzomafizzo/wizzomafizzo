@@ -2,9 +2,23 @@
 
 mpd_running=$(ps ax | grep "mpd" | grep -v "mpdrunning" | grep -v "grep")
 
-#echo -n "MPD: "
 if [ -n "$mpd_running" ]; then
-	echo "On"
+	mpd_playing=$(mpc | head -n 1)
+	mpd_playtrunc=$(echo ${mpd_playing})
+	
+	if [ `echo ${mpd_playtrunc} | wc -m` -ge 50 ]; then
+		#mpd_omg=$(echo ${mpd_playing:0:50} | sed -e "s/'. $'//" -e "s/\\.$//")
+		#mpd_play="${mpd_omg}..."
+		mpd_play="${mpd_playtrunc}"
+	else
+		mpd_play="${mpd_playtrunc}"
+	fi
+
+	if [ -n "$mpd_playing" ]; then
+		echo "Now Playing: ${mpd_play}"
+	else
+		echo "Now Playing: Nothing"
+	fi
 else
-	echo "Off"
+        echo "MPD not running"
 fi

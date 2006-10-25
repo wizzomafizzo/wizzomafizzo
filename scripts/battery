@@ -1,2 +1,2 @@
 #!/bin/bash
-acpi | cut -d',' -f2 | tr -d ' '
+echo "Battery: $(acpi | cut -d',' -f2 | tr -d ' ')"
