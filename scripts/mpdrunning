@@ -6,10 +6,9 @@ if [ -n "$mpd_running" ]; then
 	mpd_playing=$(mpc | head -n 1)
 	mpd_playtrunc=$(echo ${mpd_playing})
 	
-	if [ `echo ${mpd_playtrunc} | wc -m` -ge 50 ]; then
-		#mpd_omg=$(echo ${mpd_playing:0:50} | sed -e "s/'. $'//" -e "s/\\.$//")
-		#mpd_play="${mpd_omg}..."
-		mpd_play="${mpd_playtrunc}"
+	if [ `echo ${mpd_playtrunc} | wc -m` -ge 25 ]; then
+		mpd_omg=$(echo ${mpd_playing:0:22} | sed -e "s/'. $'//" -e "s/\\.$//")
+		mpd_play="${mpd_omg}..."
 	else
 		mpd_play="${mpd_playtrunc}"
 	fi
