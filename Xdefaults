@@ -1,5 +1,5 @@
-*.foreground:		white
-*.background:		black
+!*.foreground:		white
+!*.background:		black
 
 Xcursor*theme:		neutral
 
@@ -44,8 +44,8 @@ xterm*boldMode:		false
 
 !urxvt*font:		smoothansi
 !urxvt*boldFont:	smoothansi
-urxvt*background:	black
-urxvt*foreground:	white
+!urxvt*background:	black
+!urxvt*foreground:	white
 urxvt*scrollBar:	false
 urxvt*loginShell:	true
 urxvt*internalBorder:	0
@@ -56,13 +56,13 @@ urxvt*font:		xft:Terminus:pixelsize=12
 urxvt*boldFont:
 urxvt*italicFont:
 urxvt*boldItalicFont:
-urxvt*inheritPixmap:	true
-urxvt*shading:		10
-urxvt*tintColor:	#FFFFFF
+!urxvt*inheritPixmap:	true
+!urxvt*shading:		10
+!urxvt*tintColor:	#FFFFFF
 urxvt*title:		Terminal
-urxvt*perl-lib:		/usr/lib/urxvt
+!urxvt*perl-lib:	/usr/lib/urxvt
 urxvt*perl-ext-common:	mark-urls
-urxvt*urlLauncher:	iceweasel
+urxvt*urlLauncher:	opera
 !urxvt*foreground:	#DDDDDD
 !urxvt*background:	#334433
 urxvt*cursorColor:	orange
@@ -79,6 +79,17 @@ urxvt*pointerColor:	black
 
 !urxvt*perl-lib: /usr/lib/urxvt
 !urxvt*perl-ext-common: urxvt-theme
+
+!urxvt*inheritPixmap:    false
+!urxvt*fading:           20
+!urxvt*fadeColor:        black
+!urxvt*tintColor:        #EFEFEF
+urxvt*foreground:       #EFEFEF
+urxvt*background:       black
+!urxvt*internalBorder:   0
+
+urxvt*perl-lib: /home/wizzo/bin
+!urxvt*perl-ext-common: automove-background,urxvt-theme,mark-urls
 
 *color0:		#505450
 *color8:		#505450

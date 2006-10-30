@@ -16,16 +16,35 @@ PATH=$HOME/bin:$PATH
 smiley() {
 	err=$?
 	if [ $err == 0 ]
-	then echo ":)"
-	else echo ":("
+	then echo "=)"
+	else echo "=("
 	fi
 }
 
-function promptcmd {
-	PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w $(smiley) \$\[\033[00m\] "
-}
+#function promptcmd {
+#	PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
+#}
 
-PROMPT_COMMAND="promptcmd"
+PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
+
+#PROMPT_COMMAND="promptcmd"
+
+case ${TERM} in
+	xterm*|rxvt*|Eterm|aterm|kterm|gnome)
+		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
+		;;
+	screen)
+		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
+		;;
+esac
+
+#case "$TERM" in 
+#Xterm*|rxvt*) 
+#	PROMPT_COMMAND='echo -ne "\033]0;Terminal\007l"' 
+#	;; 
+#*) 
+#	;; 
+#esac
 
 #PS1="\n\[\033[01;32m\]\u\[\033[01;34m\]@\[\033[01;32m\]\h\[\033[01;34m\] \w >>\n\[\033[01;34m\][\D{%H}:\D{%M}:\D{%S}] $(smiley) \$\[\033[00m\] "
 
@@ -68,6 +87,8 @@ pacs () {
 grab() {
 	sudo chown -R ${USER} ${1:-.}
 }
+
+#export PERL5LIB="$HOME/perl"
 
 alias ls='ls -h --color=auto'
 alias grep='grep --color=auto'
