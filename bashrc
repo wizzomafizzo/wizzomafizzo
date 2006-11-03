@@ -7,6 +7,8 @@ export COLORFGBG='default;default'
 
 PATH=$HOME/bin:$PATH
 
+shopt -s checkwinsize
+
 #PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
 
 #if [ -f ~/scripts/colorprompt.sh ]; then
@@ -21,29 +23,33 @@ smiley() {
 	fi
 }
 
+#PROMPT_COMMAND=""
+#function dan {
+#local cur_tty=$(temp=$(tty) ; echo ${temp:5});
+#PS1="\!,$cur_tty,\$?\$ "
+#}
+
+function promptcmd {
+	local cur_tty=$(temp=$(tty) ; echo ${temp:5});
+	PS1="\n\[\033[1;30m\]{ \[\033[01;34m\]\w \[\033[1;30m\]}\n\[\033[1;30m\]{ \[\033[01;34m\]\u@\h \[\033[1;30m\]}\[\033[0;30m\] { \[\033[01;34m\]\!,$cur_tty,\$? \[\033[1;30m\]}\[\033[01;34m\] >> \$\[\033[00m\] "
+	PS2="\[\033[01;34m\]>> \[\033[00m\]"
+}
+
 #function promptcmd {
 #	PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
 #}
 
-PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
+#PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
 
-#PROMPT_COMMAND="promptcmd"
+PROMPT_COMMAND="promptcmd"
 
-case ${TERM} in
-	xterm*|rxvt*|Eterm|aterm|kterm|gnome)
-		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
-		;;
-	screen)
-		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
-		;;
-esac
-
-#case "$TERM" in 
-#Xterm*|rxvt*) 
-#	PROMPT_COMMAND='echo -ne "\033]0;Terminal\007l"' 
-#	;; 
-#*) 
-#	;; 
+#case ${TERM} in
+#	xterm*|rxvt*|Eterm|aterm|kterm|gnome)
+#		PROMPT_COMMAND='echo -ne "\033]0;${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\007"'
+#		;;
+#	screen)
+#		PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/$HOME/~}\033\\"'
+#		;;
 #esac
 
 #PS1="\n\[\033[01;32m\]\u\[\033[01;34m\]@\[\033[01;32m\]\h\[\033[01;34m\] \w >>\n\[\033[01;34m\][\D{%H}:\D{%M}:\D{%S}] $(smiley) \$\[\033[00m\] "
@@ -96,15 +102,15 @@ alias pacman='sudo pacman'
 alias svim='sudo vim'
 alias update='sudo pacman -Syu'
 alias ..='cd ..'
-alias refreshall="source $HOME/.bashrc"
+alias refresher="source $HOME/.bashrc"
 alias x='exit'
 alias h='su -c "hibernate"'
 alias nautilus='nautilus --no-desktop'
 alias cdin='mount /mnt/cdrom'
 alias cdout='umount /mnt/cdrom'
-alias rm='rm -iv'
-alias cp='cp -v'
-alias mv='mv -v'
+alias rm='rm -i'
+alias cp='cp'
+alias mv='mv'
 
 export EDITOR=vim
-export BROWSER=iceweasel
+export BROWSER=firefox
