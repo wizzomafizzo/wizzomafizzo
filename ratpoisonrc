@@ -1,5 +1,5 @@
 chdir
-#escape C-t
+#escape C-q
 escape M-z
 
 #defborder 0
@@ -8,20 +8,18 @@ escape M-z
 
 set font -*-terminus-medium-r-*-*-12-*-*-*-*-*-*
 
-exec unclutter -idle 1 -jitter 2 -root
+#exec unclutter -idle 1 -jitter 2 -root
 bind W exec ~/bin/expose.pl
 bind grave exec xset dpms force off
 
 bind m exec firefox
 bind e exec gvim
 
-#bind L exec allwindows.sh
-
 #shrink
 #fselect
-warp off
+warp on
 startup_message off
-#set winname class
+set winname class
 set wingravity center
 
 exec rpws init 4
@@ -35,10 +33,14 @@ bind Print exec scrot -e 'mv $f ~/images/screens/ && ratpoison -c "echo Click! C
 bind less exec umount /cdrom && ratpoison -c "echo Cdrom unmounted."
 bind greater exec mount /cdrom && ratpoison -c "echo Cdrom mounted."
 
-bind Prior exec amixer set Headphone 10+ && ratpoison -c "echo Volume up."
-bind Next exec amixer set Headphone 10- && ratpoison -c "echo Volume down."
+bind Prior exec amixer set Headphone 10+ && ratpoison -c "echo Headphone volume up."
+bind Next exec amixer set Headphone 10- && ratpoison -c "echo Headphone volume down."
 bind Home exec amixer set Headphone toggle && ratpoison -c "echo Headphones muted/unmuted."
 bind End exec amixer set Front toggle && ratpoison -c "echo Speakers muted/unmuted."
+
+bind P exec mpc next && ratpoison -c "echo MPD next."
+bind O exec mpc prev && ratpoison -c "echo MPD previous."
+bind I exec mpc toggle && ratpoison -c "echo MPD pause/unpause."
 
 #addhook switchwin banish
 #set bargravity center
