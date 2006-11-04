@@ -8,7 +8,7 @@ escape M-z
 
 set font -*-terminus-medium-r-*-*-12-*-*-*-*-*-*
 
-#exec unclutter -idle 1 -jitter 2 -root
+exec unclutter -idle 1 -jitter 2 -root
 bind W exec ~/bin/expose.pl
 bind grave exec xset dpms force off
 
@@ -17,7 +17,7 @@ bind e exec gvim
 
 #shrink
 #fselect
-warp on
+#warp on
 startup_message off
 set winname class
 set wingravity center
@@ -41,6 +41,10 @@ bind End exec amixer set Front toggle && ratpoison -c "echo Speakers muted/unmut
 bind P exec mpc next && ratpoison -c "echo MPD next."
 bind O exec mpc prev && ratpoison -c "echo MPD previous."
 bind I exec mpc toggle && ratpoison -c "echo MPD pause/unpause."
+
+bind L exec ratpoison -c "echo `$HOME/scripts/mpdrunning`"
+
+bind S exec ratpoison -i -c "select -" -c fselect -c "other" -c "focuslast" -c "other"
 
 #addhook switchwin banish
 #set bargravity center
