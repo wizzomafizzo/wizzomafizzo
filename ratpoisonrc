@@ -8,6 +8,7 @@ escape M-z
 
 set font -*-terminus-medium-r-*-*-12-*-*-*-*-*-*
 
+#exec sloppy
 exec unclutter -idle 1 -jitter 2 -root
 bind W exec ~/bin/expose.pl
 bind grave exec xset dpms force off
@@ -44,7 +45,7 @@ bind I exec mpc toggle && ratpoison -c "echo MPD pause/unpause."
 
 bind L exec ratpoison -c "echo `$HOME/scripts/mpdrunning`"
 
-bind S exec ratpoison -i -c "select -" -c fselect -c "other" -c "focuslast" -c "other"
+bind K exec ratpoison -i -c "select -" -c fselect -c "other" -c "focuslast" -c "other"
 
 #addhook switchwin banish
 #set bargravity center
