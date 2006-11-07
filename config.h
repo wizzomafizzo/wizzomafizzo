@@ -22,6 +22,8 @@ const char *tags[] = { "term", "net", "work", "dev", "crap", NULL };
 #define MASTER			600 /* per thousand */
 #define MODKEY			Mod1Mask
 
+#define SNAP			0
+
 #define KEYS \
 static Key key[] = { \
 	/* modifier			key		function	arguments */ \
@@ -34,12 +36,10 @@ static Key key[] = { \
 	{ MODKEY,               	XK_v,  		spawn,          { .cmd = "exec swarp 1280 800" } }, \
 	{ MODKEY,			XK_Tab,		focusnext,	{ 0 } }, \
 	{ MODKEY|ShiftMask,		XK_Tab,		focusprev,	{ 0 } }, \
-	{ MODKEY,			XK_s,		viewprev,	{ 0 } }, \
-	{ MODKEY,			XK_d,		viewnext,	{ 0 } }, \
-	{ MODKEY|ShiftMask,		XK_w,		zoom,		{ 0 } }, \
+	{ MODKEY|ShiftMask,		XK_Return,	zoom,		{ 0 } }, \
 	{ MODKEY,			XK_b,		togglestackpos,	{ 0 } }, \
-	{ MODKEY,			XK_f,		resizecol,	{ .i = 15 } }, \
-	{ MODKEY,			XK_g,		resizecol,	{ .i = -15 } }, \
+	{ MODKEY,			XK_s,		resizemaster,	{ .i = 15 } }, \
+	{ MODKEY,			XK_d,		resizemaster,	{ .i = -15 } }, \
 	{ MODKEY|ShiftMask,		XK_1,		tag,		{ .i = 0 } }, \
 	{ MODKEY|ShiftMask,		XK_q,		tag,		{ .i = 1 } }, \
 	{ MODKEY|ShiftMask,		XK_a,		tag,		{ .i = 2 } }, \
@@ -50,7 +50,7 @@ static Key key[] = { \
 	{ MODKEY|ControlMask|ShiftMask,	XK_a,		toggletag,	{ .i = 2 } }, \
 	{ MODKEY|ControlMask|ShiftMask,	XK_z,		toggletag,	{ .i = 3 } }, \
 	{ MODKEY|ControlMask|ShiftMask,	XK_x,		toggletag,	{ .i = 4 } }, \
-	{ MODKEY|ShiftMask,		XK_c,		killclient,	{ 0 } }, \
+	{ MODKEY,			XK_c,		killclient,	{ 0 } }, \
 	{ MODKEY,			XK_space,	togglemode,	{ 0 } }, \
 	{ MODKEY,			XK_0,		viewall,	{ 0 } }, \
 	{ MODKEY,			XK_1,		view,		{ .i = 0 } }, \
@@ -75,7 +75,6 @@ static Rule rule[] = { \
 	        { "Gimp.*",                     NULL,           True}, \
 	        { "MPlayer.*",                  NULL,           True}, \
 	        { "Opera.*",                    "net",          False}, \
-	        { "Minefield.*",                    "net",          False}, \
-		{ "feh.*",			NULL,		True}, \
+		/*{ "feh.*",			NULL,		True}, \*/ \
 		{ "Dillo.*",			"net",		False }, \
 };
