@@ -3,19 +3,23 @@ autodetach on
 
 #escape `.
 
+defbce on
+
 startup_message off
 shell -$SHELL
-#activity "active: %n (%t) [%w:%s]"
-#bell "bell: %n (%t) [%w:%s]^G"
+activity "active: %n (%t) [%w:%s]"
+bell "bell: %n (%t) [%w:%s]^G"
 vbell off
 vbell_msg "Ding! Ding!"
-#termcapinfo xterm|xterms|xterm-color|screen|xs|rxvt ti@:te@
+termcapinfo xterm|xterms|xterm-color|screen|xs|rxvt ti@:te@
+term screen-256color
 
 defscrollback 1024
 nonblock on
 defutf8 on
 msgwait 2
 
+#backtick 3 0 0 $HOME/scripts/netinfo 2 wlan0
 backtick 1 0 60 $HOME/scripts/battery
 backtick 2 0 10 $HOME/scripts/date
 
@@ -28,21 +32,22 @@ bind ^v version
 #caption always "%{=b dk} %=[ %?%{-b dc}%-Lw%?%{+b dk}(%{+b dw}%n:%t%{+b dk})%?(%u)%?%{-b dw}%?%{-b dc}%+Lw%? %{=b dk}]%= "
 #caption always '%{=b dw}:%{-b dw}:%{-b dk}[%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{=b dk} | @%H ]%{-b dw}:%{+b dw}:'
 #caption always '%{=b dw}:%{-b dw}:%{-b dk}[%= %?%{-b dc}%-Lw%?%{+b dk}(%{+b dw}%n:%t%{+b dk})%?(%u)%?%{-b dw}%?%{-b dc}%+Lw%?%{=b dk} | @%H ]%{-b dw}:%{+b dw}:'
-caption always "%{=b dw}:%{-b dw}:%{=b dk}[ %{=b dw}${USER}::%H %{=b dk}]%=[ %?%{-b dc}%-Lw%?%{+b dk}(%{+b dw}%n:%t%{+b dk})%?(%u)%?%{-b dw}%?%{-b dc}%+Lw%? %{=b dk}]%{-b dw}:%{+b dw}:"
+caption always "%{=b dw}:%{-b dw}:%{=b dk}[ %{=b db}${USER}@%H %{=b dk}]%=[ %?%{=b db}%-Lw%?%{+b dk}(%{-b dw}%n:%t%{+b dk})%?(%u)%?%{-b dw}%?%{=b db}%+Lw%? %{=b dk}]%{-b dw}:%{+b dw}:"
 
 hardstatus alwayslastline
 #hardstatus string '%{=b dw}:%{-b dw}:%{=b dk}[ %2` | Batt: %1` ]%{-b dw}:%{+b dw}:'
 #hardstatus string '%{=b dw}:%{-b dw}:%{=b dk}[ Batt: %1` | @%H ][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f %t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= ][ %d/%m %{W}%c %{=b dk}]%{-b dw}:%{+b dw}:'
 #hardstatus string "%{=b dw}:%{-b dw}:%{=b dk}[ %{=b dw}%2` %{=b dk}]%=%{=b dk}[ %{=b dw}Battery: %1` %{=b dk}%{=b dk}| %{=b dw}MPD: %3` %{=b dk}]%{-b dw}:%{+b dw}:"
-hardstatus string "%{=b dw}:%{-b dw}:%{=b dk}[ %{=b dw}%2` %{=b dk}]%=%{=b dk}[ %{=b dw}%1` %{=b dk}]%{-b dw}:%{+b dw}:"
+hardstatus string "%{=b dw}:%{-b dw}:%{=b dk}[ %{=b db}%2` %{=b dk}]%=%{=b dk}[ %{=b db}%1` %{=b dk}]%{-b dw}:%{+b dw}:"
 
 screen -t irc 0 irssi
+#screen -t www 1 elinks
 screen -t sysinfo 1 runsysinfo
-screen -t music 2 ncmpc
-screen -t mixer 3 alsamixer
-screen -t www 4 elinks
+#screen -t music 2 ncmpc
+#screen -t mixer 3 alsamixer
+screen 2
+screen 3
+screen 4
 screen 5
-screen 6
-#screen 7
 
 select 0
