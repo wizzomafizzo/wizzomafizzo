@@ -1,0 +1,28 @@
+#! /bin/bash
+
+case $* in
+	up)
+	
+	amixer set Headphone 10%+
+	amixer set Front 10%+
+	amixer set PCM 10%+
+
+	;;
+
+	down)
+
+	amixer set Headphone 10%-
+	amixer set Front 10%-
+	amixer set PCM 10%-
+
+	;;
+
+	toggle)
+
+	amixer set Headphone toggle
+	amixer set Front toggle
+
+	;;
+esac
+
+exit 0

@@ -10,14 +10,15 @@ xset dpms 600
 #	eval `dbus-launch --sh-syntax --exit-with-session`
 #fi
 
+unclutter -idle 1 -jitter 2 -root &
+
 xterm -e screen -D -R &
+xterm &
 
-exec ratpoison 2> /dev/null
+while true; do
+        echo "$($HOME/scripts/mpdrunning) | $($HOME/bin/echosound) | $($HOME/scripts/battery) | $($HOME/scripts/temp) | $($HOME/scripts/date)"
+        sleep 5
+done | dwm
 
-#while true
-#do
-#	echo "$($HOME/scripts/mpdrunning) | $($HOME/scripts/battery) | $($HOME/scripts/date)"
-#	sleep 5
-#done | dwm
-
+#exec ratpoison
 #exec evilwm -term xterm -fn -*-terminus-medium-r-*-*-12-*-*-*-*-*-* -fg \#045870 -bg black -fc white -bw 3 -snap 5 -nosoliddrag

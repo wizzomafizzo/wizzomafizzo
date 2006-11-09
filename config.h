@@ -9,7 +9,7 @@ const char *tags[] = { "term", "net", "work", "dev", "crap", NULL };
 #define FLOATSYMBOL		"%"
 #define VSTACKSYMBOL		"#"
 #define BSTACKSYMBOL		"="
-#define STACKPOS		StackRight	/* StackLeft */
+#define STACKPOS		StackBottom	/* StackLeft */
 
 #define FONT			"-*-terminus-medium-*-*-*-*-*-*-*-*-*-*-*"
 #define NORMBGCOLOR		"#333333"
@@ -27,12 +27,19 @@ const char *tags[] = { "term", "net", "work", "dev", "crap", NULL };
 #define KEYS \
 static Key key[] = { \
 	/* modifier			key		function	arguments */ \
-	{ MODKEY,			XK_w,	spawn,		{ .cmd = "exec term" } }, \
+	{ MODKEY,			XK_w,	spawn,		{ .cmd = "exec xterm" } }, \
+	{ MODKEY,			XK_l,	spawn,		{ .cmd = "exec sound up" } }, \
+	{ MODKEY,			XK_k,	spawn,		{ .cmd = "exec sound down" } }, \
+	{ MODKEY,			XK_j,	spawn,		{ .cmd = "exec sound toggle" } }, \
+	{ MODKEY,			XK_p,	spawn,		{ .cmd = "exec mpc next" } }, \
+	{ MODKEY,			XK_o,	spawn,		{ .cmd = "exec mpc prev" } }, \
+	{ MODKEY,			XK_i,	spawn,		{ .cmd = "exec mpc toggle" } }, \
+	{ MODKEY,			XK_Print,	spawn,		{ .cmd = "exec ss" } }, \
         { MODKEY,                       XK_r,           spawn, \
         { .cmd = "exe=\"$(lsx `echo $PATH | sed 's/:/ /g'` | sort -u " \
  	         " | dmenu -font '"FONT"' -normbg '"NORMBGCOLOR"' -normfg '"NORMFGCOLOR"' " \
    	         "-selbg '"SELBGCOLOR"' -selfg '"SELFGCOLOR"')\" && exec $exe" } }, \
-	{ MODKEY,               	XK_e,  		spawn,          { .cmd = "exec browser" } }, \
+	{ MODKEY,               	XK_e,  		spawn,          { .cmd = "exec firefox" } }, \
 	{ MODKEY,               	XK_v,  		spawn,          { .cmd = "exec swarp 1280 800" } }, \
 	{ MODKEY,			XK_Tab,		focusnext,	{ 0 } }, \
 	{ MODKEY|ShiftMask,		XK_Tab,		focusprev,	{ 0 } }, \
@@ -74,7 +81,8 @@ static Rule rule[] = { \
 	        { "Firefox.*",                  "net",          False }, \
 	        { "Gimp.*",                     NULL,           True}, \
 	        { "MPlayer.*",                  NULL,           True}, \
+	        { ".*Pixel.*",                  NULL,           True}, \
 	        { "Opera.*",                    "net",          False}, \
-		/*{ "feh.*",			NULL,		True}, \*/ \
+		{ "feh.*",			NULL,		True},  \
 		{ "Dillo.*",			"net",		False }, \
 };

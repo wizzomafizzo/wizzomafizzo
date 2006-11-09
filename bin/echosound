@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "Sound: $(amixer get Headphone | tail -n 1 | awk '{print $5}') $(amixer get PCM | tail -n 1 | awk '{print $5}') $(amixer get Front | tail -n 1 | awk '{print $5}')"
