@@ -1,0 +1,1 @@
+Repository of all my config files for various programs in Linux. Plus scripts that are just plain neat or relate to the configs.
